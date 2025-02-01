@@ -1,6 +1,6 @@
 # BeyondChats Registration
+[Live Demo](https://byond-chats.vercel.app/)
 
-Demo Live ![Link](https://byond-chats.vercel.app/)
 
 This project is a user registration interface for BeyondChats, featuring user registration, Google sign-in, email verification, and OTP functionalities.
 
