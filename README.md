@@ -33,3 +33,5 @@ git push -u origin main
 
 # OR if you're using 'master'
 git push -u origin master
+
+git remote add origin https://github.com/GitMohit-9621/Byond-chat.git
