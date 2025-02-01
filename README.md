@@ -26,3 +26,10 @@ A modern chat application built with React, featuring user authentication and re
 ## Environment Variables
 
 Create a `.env` file in the root directory and add:
+
+# If you're using 'main' as your default branch
+git branch -M main
+git push -u origin main
+
+# OR if you're using 'master'
+git push -u origin master

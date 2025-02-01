@@ -1,0 +1,24 @@
+{
+  "name": "beyondchats-registration",
+  "version": "1.0.0",
+  "description": "A responsive user registration interface for BeyondChats with Google sign-in and OTP verification.",
+  "main": "src/index.jsx",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "firebase": "^9.6.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-plugin-react": "^7.27.1"
+  },
+  "homepage": ".",
+  "license": "MIT"
+}

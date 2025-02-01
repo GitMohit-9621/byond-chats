@@ -1,0 +1,1344 @@
+.main-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  /* background-color: #9b0ddc; */
+  background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+}
+
+.form-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  animation: slideIn 0.5s ease-out;
+}
+
+h2 {
+  color: #333;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+p {
+  color: #666;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  outline: none;
+  border-color: #4CAF50;
+}
+
+input.valid {
+  border-color: #4CAF50;
+  padding-right: 35px;
+}
+
+.check-mark {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #4CAF50;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+button.loading {
+  position: relative;
+  opacity: 0.8;
+}
+
+.divider {
+  text-align: center;
+  margin: 20px 0;
+  position: relative;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 45%;
+  height: 1px;
+  background-color: #ddd;
+}
+
+.divider::before {
+  left: 0;
+}
+
+.divider::after {
+  right: 0;
+}
+
+.divider span {
+  background-color: white;
+  padding: 0 10px;
+  color: #666;
+}
+
+.google-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  /* background-color: white; */
+  background-image: linear-gradient(to right, #f9d423 0%, #ff4e50 100%);
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+.google-button:hover {
+  background-color: #f8f8f8;
+}
+
+.google-icon {
+  color: #4285f4;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+button.loading::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  left: 50%;
+  margin-left: -10px;
+  margin-top: -10px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 1s linear infinite;
+}
+
+/* Add these new styles for OTP verification */
+
+.back-button {
+  background: none;
+  border: none;
+  color: #666;
+  padding: 0;
+  margin-bottom: 1rem;
+  width: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.back-button:hover {
+  color: #333;
+}
+
+.otp-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+  position: relative;
+}
+
+.otp-input {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  font-size: 1.5rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.otp-input:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+
+.otp-input.verified {
+  border-color: #4CAF50;
+  background-color: rgba(76, 175, 80, 0.1);
+}
+
+.verification-success {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: fadeInScale 0.5s ease forwards;
+}
+
+.success-checkmark {
+  width: 80px;
+  height: 80px;
+  position: relative;
+}
+
+.check-icon {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  border-radius: 50%;
+  background-color: #4CAF50;
+  transform: scale(0);
+  animation: popIn 0.5s ease forwards;
+}
+
+.icon-line {
+  height: 5px;
+  background-color: #fff;
+  position: absolute;
+  border-radius: 2px;
+}
+
+.line-tip {
+  width: 25px;
+  transform: rotate(45deg);
+  top: 46%;
+  left: 26%;
+}
+
+.line-long {
+  width: 40px;
+  transform: rotate(-45deg);
+  top: 38%;
+  left: 32%;
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.otp-container.verified .otp-input {
+  transform: scale(0.8);
+  opacity: 0.5;
+  transition: all 0.5s ease;
+}
+
+.resend-container {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.resend-container p {
+  color: #666;
+  margin: 0;
+}
+
+.resend-button {
+  background: none;
+  border: none;
+  color: #4CAF50;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+}
+
+.resend-button:hover {
+  text-decoration: underline;
+}
+
+.resend-button:disabled {
+  color: #999;
+  cursor: not-allowed;
+  text-decoration: none;
+}
+
+/* Add transition animation for container changes */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Add these new styles for organization setup */
+
+.organization-setup {
+  max-width: 600px !important;
+}
+
+.url-input-group {
+  position: relative;
+}
+
+.fetch-indicator {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #666;
+  font-size: 14px;
+}
+
+.spinning {
+  animation: spin 1s linear infinite;
+}
+
+.description-field {
+  width: 100%;
+  min-height: 100px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  resize: vertical;
+  font-family: inherit;
+  font-size: 16px;
+}
+
+.scraping-status {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #eee;
+}
+
+.pages-list {
+  margin-top: 1rem;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.page-item {
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.page-item:hover {
+  transform: translateX(5px);
+  border-color: #4CAF50;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.page-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.page-icon {
+  color: #666;
+}
+
+.status-icon {
+  font-size: 18px;
+}
+
+.status-icon.completed {
+  color: #4CAF50;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ffd700;
+}
+
+.page-chunks {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+  animation: slideDown 0.3s ease-out;
+}
+
+.chunk {
+  padding: 0.5rem;
+  background: #f8f9fa;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  font-size: 14px;
+  color: #666;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.continue-button {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: linear-gradient(45deg, #4CAF50, #45a049);
+  transition: all 0.3s ease;
+}
+
+.continue-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.2);
+}
+
+.button-icon {
+  transition: transform 0.3s ease;
+}
+
+.continue-button:hover .button-icon {
+  transform: translateX(3px);
+}
+
+/* Add these new styles for chatbot integration */
+
+.integration-container {
+  position: relative;
+  padding-top: 3rem;
+}
+
+.integration-container h2 {
+  margin-top: 1rem;
+}
+
+.integration-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.test-button, .integrate-button, .test-integration-button {
+  padding: 1.5rem;
+  border-radius: 10px;
+  background: white;
+  border: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button-text-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+}
+
+.primary-text {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.secondary-text {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 0.2rem;
+}
+
+.chatbot-widget {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 380px;
+  height: 600px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 30px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.chatbot-header {
+  padding: 1rem;
+  background: linear-gradient(45deg, #4CAF50, #45a049);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chatbot-header-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.chatbot-avatar {
+  font-size: 1.5rem;
+  background: rgba(255,255,255,0.2);
+  padding: 8px;
+  border-radius: 50%;
+}
+
+.chatbot-title {
+  display: flex;
+  flex-direction: column;
+}
+
+.online-status {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  background: #f5f5f5;
+}
+
+.message {
+  margin-bottom: 1rem;
+  max-width: 80%;
+  position: relative;
+}
+
+.message.user {
+  margin-left: auto;
+  background: #1976D2;
+  color: white;
+  border-radius: 15px 15px 0 15px;
+  padding: 10px 15px;
+}
+
+.message.ai {
+  margin-right: auto;
+  background: white;
+  color: #333;
+  border-radius: 15px 15px 15px 0;
+  padding: 10px 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.message-time {
+  font-size: 0.7rem;
+  opacity: 0.7;
+  margin-top: 4px;
+  text-align: right;
+}
+
+.message-status {
+  position: absolute;
+  right: -20px;
+  bottom: 4px;
+}
+
+.check-icon.delivered {
+  color: #4CAF50;
+  font-size: 0.8rem;
+}
+
+.typing-indicator {
+  display: flex;
+  gap: 4px;
+  padding: 10px;
+  background: white;
+  border-radius: 15px;
+}
+
+.typing-indicator span {
+  width: 8px;
+  height: 8px;
+  background: #4CAF50;
+  border-radius: 50%;
+  animation: typing 1s infinite ease-in-out;
+}
+
+.typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+.typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typing {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.chat-input {
+  padding: 1rem;
+  background: white;
+  border-top: 1px solid #eee;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+.chat-input button {
+  padding: 8px 20px;
+  border-radius: 20px;
+  background: #4CAF50;
+  color: white;
+  width: auto;
+}
+
+.success-screen {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 30px rgba(0,0,0,0.2);
+  text-align: center;
+  z-index: 1100;
+  width: 90%;
+  max-width: 500px;
+}
+
+.success-content {
+  position: relative;
+}
+
+.success-content h3 {
+  color: #333;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.success-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.admin-button,
+.chat-button {
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.admin-button {
+  background: #4CAF50;
+  color: white;
+}
+
+.chat-button {
+  background: #2196F3;
+  color: white;
+}
+
+.show-confetti {
+  animation: popIn 0.5s ease forwards;
+}
+
+@keyframes popIn {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Add confetti animation */
+.show-confetti::before,
+.show-confetti::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  animation: confetti 1s ease-out forwards;
+}
+
+.show-confetti::before {
+  background: #4CAF50;
+  left: 20%;
+  animation-delay: 0.2s;
+}
+
+.show-confetti::after {
+  background: #2196F3;
+  right: 20%;
+  animation-delay: 0.4s;
+}
+
+@keyframes confetti {
+  0% {
+    transform: translateY(-100%) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Add these new styles for better icon display */
+
+.title-icon {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+  color: #4CAF50;
+}
+
+.action-button {
+  padding: 1.5rem;
+  border-radius: 10px;
+  background: white;
+  border: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.action-button:hover {
+  background: #f8f9fa;
+  border-color: #4CAF50;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.1);
+}
+
+.button-icon-wrapper {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #f0f7f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.action-icon {
+  font-size: 1.2rem;
+  color: #4CAF50;
+}
+
+.integration-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.button-text-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+}
+
+.primary-text {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.secondary-text {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 0.2rem;
+}
+
+/* Update chatbot widget styles */
+.chatbot-widget {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 350px;
+  height: 500px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 30px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.chatbot-header {
+  padding: 1rem;
+  background: linear-gradient(45deg, #4CAF50, #45a049);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chatbot-header button {
+  background: none;
+  border: none;
+  color: white;
+  padding: 5px;
+  cursor: pointer;
+  width: auto;
+}
+
+.chatbot-header button:hover {
+  transform: scale(1.1);
+}
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+.message {
+  margin-bottom: 1rem;
+  padding: 0.8rem;
+  border-radius: 10px;
+  max-width: 80%;
+}
+
+.message.user {
+  background: #E3F2FD;
+  margin-left: auto;
+}
+
+.message.ai {
+  background: #F5F5F5;
+  margin-right: auto;
+}
+
+.chat-input {
+  padding: 1rem;
+  border-top: 1px solid #eee;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.success-screen {
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.success-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.social-sharing {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.share-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.share-button:hover {
+  transform: translateY(-2px);
+}
+
+.facebook { background: #1877F2; }
+.twitter { background: #1DA1F2; }
+.linkedin { background: #0A66C2; }
+
+.integration-methods {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.method-card {
+  padding: 1.5rem;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  background: white;
+}
+
+.code-snippet {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 5px;
+  margin: 1rem 0;
+  font-family: monospace;
+  white-space: pre-wrap;
+}
+
+/* Add confetti animation styles */
+.success-screen {
+  position: relative;
+  overflow: hidden;
+}
+
+.show-confetti::before,
+.show-confetti::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  animation: confetti 1.5s ease-out forwards;
+}
+
+.show-confetti::before {
+  background-color: #4CAF50;
+  left: 25%;
+}
+
+.show-confetti::after {
+  background-color: #2196F3;
+  right: 25%;
+}
+
+@keyframes confetti {
+  0% {
+    transform: translateY(-100%) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Add multiple confetti pieces */
+.success-screen::before {
+  animation-delay: 0.2s;
+  left: 15%;
+}
+
+.success-screen::after {
+  animation-delay: 0.4s;
+  right: 35%;
+}
+
+/* Add these styles for the close button */
+.close-modal-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #666;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 50%;
+}
+
+.close-modal-button:hover {
+  background: #f5f5f5;
+  color: #333;
+  transform: rotate(90deg);
+}
+
+.success-icon {
+  color: #4CAF50;
+  margin-right: 8px;
+  font-size: 1.2em;
+  vertical-align: middle;
+}
+
+/* Add overlay background */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1099;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Add styles for copy button */
+.copy-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.copy-button.success {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.copy-success-icon {
+  margin-right: 8px;
+  animation: popIn 0.3s ease;
+}
+
+/* Email modal styles */
+.email-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  z-index: 1100;
+}
+
+.email-modal h3 {
+  margin-bottom: 1.5rem;
+}
+
+.email-modal textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  resize: vertical;
+  font-family: inherit;
+  margin-bottom: 1rem;
+}
+
+.email-success {
+  text-align: center;
+  padding: 2rem;
+}
+
+.email-success .success-icon {
+  font-size: 3rem;
+  color: #4CAF50;
+  margin-bottom: 1rem;
+  animation: popIn 0.5s ease;
+}
+
+/* Update integration methods styles */
+.integration-methods {
+  position: relative;
+}
+
+.method-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.method-card button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* Animation keyframes */
+@keyframes popIn {
+  0% { transform: scale(0); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+/* Add styles for integration back button */
+.integration-back-button {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  background: none;
+  border: none;
+  color: #666;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.integration-back-button:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: #333;
+}
+
+.dark .integration-back-button {
+  color: #999;
+}
+
+.dark .integration-back-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+/* Theme Toggle Button */
+.theme-toggle-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: white;
+  border: none;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.dark .theme-toggle-button {
+  background: #2d2d2d;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.theme-icon {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.dark .theme-icon {
+  color: #fff;
+}
+
+/* Dark mode styles */
+.dark {
+  background-color: #1a1a1a;
+  color: #fff;
+}
+
+.dark .form-container {
+  background: #2d2d2d;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.dark h2 {
+  color: #fff;
+}
+
+.dark p {
+  color: #ccc;
+}
+
+.dark input,
+.dark textarea {
+  background: #3d3d3d;
+  border-color: #4d4d4d;
+  color: #fff;
+}
+
+.dark input:focus,
+.dark textarea:focus {
+  border-color: #4CAF50;
+}
+
+.dark .divider::before,
+.dark .divider::after {
+  background-color: #4d4d4d;
+}
+
+.dark .divider span {
+  background-color: #2d2d2d;
+  color: #ccc;
+}
+
+.dark .google-button {
+  background-color: #2d2d2d;
+  color: #fff;
+  border-color: #4d4d4d;
+}
+
+.dark .page-item {
+  background: #2d2d2d;
+  border-color: #4d4d4d;
+}
+
+.dark .page-item:hover {
+  border-color: #4CAF50;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.dark .chunk {
+  background: #3d3d3d;
+  color: #ccc;
+}
+
+.dark .action-button {
+  background: #2d2d2d;
+  border-color: #4d4d4d;
+}
+
+.dark .action-button:hover {
+  background: #3d3d3d;
+  border-color: #4CAF50;
+}
+
+.dark .button-icon-wrapper {
+  background: #3d3d3d;
+}
+
+.dark .primary-text {
+  color: #fff;
+}
+
+.dark .secondary-text {
+  color: #ccc;
+}
+
+.dark .chatbot-widget {
+  background: #2d2d2d;
+}
+
+.dark .chat-messages {
+  background: #1a1a1a;
+}
+
+.dark .message.ai {
+  background: #3d3d3d;
+  color: #fff;
+}
+
+.dark .chat-input {
+  background: #2d2d2d;
+  border-top-color: #4d4d4d;
+}
+
+.dark .success-screen {
+  background: #2d2d2d;
+}
+
+.dark .success-content h3 {
+  color: #fff;
+}
+
+.dark .method-card {
+  background: #2d2d2d;
+  border-color: #4d4d4d;
+}
+
+.dark .code-snippet {
+  background: #3d3d3d;
+  color: #fff;
+}
+
+.dark .email-modal {
+  background: #2d2d2d;
+}
+
+/* Add transition for smooth theme switching */
+.page-container,
+.form-container,
+input,
+textarea,
+button,
+.chatbot-widget,
+.success-screen,
+.email-modal {
+  transition: all 0.3s ease;
+}
